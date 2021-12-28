@@ -6,7 +6,11 @@ readable, but will add an unchanged version.
 
 ## Example Usage
 
-`gcc main.c -o main && ./main > foo.c | gcc foo.c -o foo && ./foo > bar.c | gcc bar.c -o bar`
+`./init simple`
+
+`./init foobar`
+
+`./init endless void`
 
 ## TODO
 
@@ -16,3 +20,4 @@ means `s` is only 224 lines. The current implementation of `s` has 227
 lines.
 
 * [ ] Find 3 unnecessary lines in `s`
+* [ ] Add more examples to `init` script

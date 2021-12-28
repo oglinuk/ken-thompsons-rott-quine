@@ -1,0 +1,21 @@
+#!/bin/bash
+
+simple() {
+	gcc main.c -o main && ./main && rm main
+}
+
+foobar() {
+	gcc main.c -o main && ./main > foo.c | gcc foo.c -o foo && ./foo > bar.c | gcc bar.c -o bar
+}
+
+endless() {
+	if [[ -z $1 ]];then
+		echo "Usage: ./init endless <name>"
+		exit -1;
+	fi
+
+	INCR=0
+	gcc main.c -o $* && while :; do ./$* > $*$INCR.c | gcc $*$INCR.c -o main-$INCR && ((INCR++)); sleep 1; done
+}
+
+$*
